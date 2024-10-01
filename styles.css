@@ -6,7 +6,9 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #6a11cb, #2575fc);
+    background-image: url('caminho/para/sua/imagem.jpg'); /* Altere para o caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
