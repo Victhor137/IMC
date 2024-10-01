@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('caminho/para/sua/imagem.jpg'); /* Altere para o caminho da sua imagem */
+    background-image: url('fundopaisagem.jpg'); /* Altere para o caminho da sua imagem */
     background-size: cover;
     background-position: center;
     display: flex;
