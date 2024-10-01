@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Desconto IR</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function calcularDescontoIR() {
+            const nome = document.getElementById("nome").value;
+            const salarioLiquido = parseFloat(document.getElementById("salario").value.replace(',', '.'));
+
+            let desconto;
+            if (salarioLiquido < 2000) {
+                desconto = 0.30; // 30%
+            } else {
+                desconto = 0.40; // 40%
+            }
+
+            // Aplica o desconto
+            const valorDesconto = salarioLiquido * desconto;
+            const salarioFinal = salarioLiquido - valorDesconto;
+
+            document.getElementById("resultado").innerText = `Olá, ${nome}! Seu salário após desconto é R$${salarioFinal.toFixed(2)}`;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Cálculo de Desconto IR</h1>
+        <form onsubmit="event.preventDefault(); calcularDescontoIR();">
+            <div class="input-container">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required>
+            </div>
+            <div class="input-container">
+                <label for="salario">Salário Líquido:</label>
+                <input type="text" id="salario" required>
+            </div>
+            <button type="submit">Calcular</button>
+            <p id="resultado" class="result-message"></p>
+        </form>
+        <br><br>
+        <button onclick="window.location.href='menu.html'">Voltar para Menu</button>
+    </div>
+</body>
+</html>
