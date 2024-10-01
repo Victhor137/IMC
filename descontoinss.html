@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Desconto INSS</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function calcularDesconto() {
+            const nome = document.getElementById("nome").value;
+            const salarioLiquido = parseFloat(document.getElementById("salario").value.replace(',', '.'));
+            let desconto = document.getElementById("desconto").value;
+
+            // Verifica se o desconto é em percentual
+            if (desconto.endsWith('%')) {
+                desconto = parseFloat(desconto.replace('%', '')) / 100;
+            } else {
+                desconto = parseFloat(desconto.replace(',', '.'));
+            }
+
+            // Aplica o desconto
+            const valorDesconto = salarioLiquido * (desconto instanceof Number ? desconto : 0);
+            const salarioFinal = salarioLiquido - valorDesconto;
+
+            document.getElementById("resultado").innerText = `Olá, ${nome}! Seu salário após desconto é R$${salarioFinal.toFixed(2)}`;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Cálculo de Desconto INSS</h1>
+        <form onsubmit="event.preventDefault(); calcularDesconto();">
+            <div class="input-container">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required>
+            </div>
+            <div class="input-container">
+                <label for="salario">Salário Líquido:</label>
+                <input type="text" id="salario" required>
+            </div>
+            <div class="input-container">
+                <label for="desconto">Desconto (em % ou valor):</label>
+                <input type="text" id="desconto" required>
+            </div>
+            <button type="submit">Calcular</button>
+            <p id="resultado" class="result-message"></p>
+        </form>
+        <br><br>
+        <button onclick="window.location.href='menu.html'">Voltar para Menu</button>
+    </div>
+</body>
+</html>
