@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Salário Líquido</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function calcularSalario() {
+            const nome = document.getElementById("nome").value;
+            const salarioBruto = parseFloat(document.getElementById("salario").value);
+            const desconto = parseFloat(document.getElementById("desconto").value);
+            const filhos = parseInt(document.getElementById("filhos").value);
+
+            const bonusPorFilho = 100;
+            const salarioLiquido = salarioBruto - desconto + (filhos * bonusPorFilho);
+
+            document.getElementById("resultado").innerText = `Olá, ${nome}! Seu salário líquido é R$${salarioLiquido.toFixed(2)}`;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Cálculo de Salário Líquido</h1>
+        <form onsubmit="event.preventDefault(); calcularSalario();">
+            <div class="input-container">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required>
+            </div>
+            <div class="input-container">
+                <label for="salario">Salário Bruto:</label>
+                <input type="number" id="salario" required>
+            </div>
+            <div class="input-container">
+                <label for="desconto">Desconto:</label>
+                <input type="number" id="desconto" required>
+            </div>
+            <div class="input-container">
+                <label for="filhos">Quantidade de Filhos:</label>
+                <input type="number" id="filhos" required>
+            </div>
+            <button type="submit">Calcular</button>
+            <p id="resultado" class="result-message"></p>
+        </form>
+    </div>
+</body>
+</html>
