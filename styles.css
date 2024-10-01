@@ -21,7 +21,8 @@ body {
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    width: 350px;
+    width: 100%; /* Ajuste para ocupar 100% da largura do contêiner pai */
+    max-width: 350px; /* Define uma largura máxima */
     text-align: center;
     transition: transform 0.3s;
 }
@@ -91,4 +92,20 @@ button:hover {
     color: #e74c3c;
     margin-top: 10px;
     font-weight: bold;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px; /* Menos padding em telas menores */
+    }
+
+    h1 {
+        font-size: 20px; /* Tamanho da fonte menor em telas pequenas */
+    }
+
+    input, button {
+        padding: 10px; /* Ajuste no padding do botão e dos inputs */
+        font-size: 16px; /* Tamanho da fonte reduzido */
+    }
 }
