@@ -14,7 +14,7 @@
 
             const bonusPorFilho = 100;
             const salarioLiquido = salarioBruto - desconto + (filhos * bonusPorFilho);
-
+            
             document.getElementById("resultado").innerText = `Olá, ${nome}! Seu salário líquido é R$${salarioLiquido.toFixed(2)}`;
         }
     </script>
@@ -41,6 +41,7 @@
             </div>
             <button type="submit">Calcular</button>
             <p id="resultado" class="result-message"></p>
+            <br><br>
         </form>
     </div>
 </body>
